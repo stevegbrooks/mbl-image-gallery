@@ -29,6 +29,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { SlideshowModule } from 'ng-simple-slideshow';
 import { HttpReqInterceptor } from './http-req-interceptor';
 import { PhotoService } from './photo.service';
+
 @NgModule({
   declarations: [
     AppComponent,
