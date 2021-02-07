@@ -1,0 +1,20 @@
+<form #searchForm='ngForm' (ngSubmit)='searchPhotos(searchForm)'>
+    <mat-form-field>
+        <input matInput placeholder="Search Photos" required #search='ngModel' name='search' [(ngModel)]='query.search'>
+        <mat-error *ngIf="search.invalid && (search.dirty || search.touched)">
+            <div *ngIf="search.errors.required">
+                Search query is required.
+            </div>
+        </mat-error>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button type='submit'>Search</button>
+</form>
+<br>
+<div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()">
+    <mat-grid-list cols="2" rowHeight="2:1">
+        <mat-grid-tile *ngFor='let p of photoUrls'>
+            <img [src]="p.urls.regular" class="tile-image" />
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
